@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario Misiones Cristianas Bolivia</title>
+    <link rel="stylesheet" href="form-style.css">
+</head>
+
+<body>
+
+    <div class="page-container">
+        <!-- Botón de Imprimir Flotante -->
+        <button onclick="window.print()" class="print-btn" title="Imprimir Formulario">🖨️ Imprimir</button>
+
+        <!-- Encabezado -->
+        <header>
+            <div class="header-logo">
+                <!-- Espacio para el logo -->
+                <img src="logomcb.png" alt="Logo MCB" style="width:100%; height:auto;">
+                <!-- <div class="logo-placeholder">LOGO</div> -->
+            </div>
+            <div class="header-content">
+                <h1>Misiones Cristianas Bolivia</h1>
+                <p class="legal-info">Personería Jurídica mediante R.S.N° 97868 de 3/10/60, modificada con N° 216517 de
+                    10/01/96</p>
+                <p class="website">www.misionescristianasbolivia.org</p>
+                <h2>FORMULARIO PARA ACTUALIZACIÓN DE DATOS<br>E INFORME ANUAL DE ACTIVIDADES</h2>
+                <p class="instructions">(Por favor escriba con letra clara todos los datos requeridos)</p>
+            </div>
+            <div class="header-date">
+                <label>Fecha:</label>
+                <div class="date-box" onclick="document.getElementById('date-picker').showPicker()"
+                    style="cursor: pointer;">
+                    <div class="date-header">
+                        <span>DÍA</span><span>MES</span><span>AÑO</span>
+                    </div>
+                    <div class="date-inputs">
+                        <input type="text" maxlength="2" id="day-input" readonly>
+                        <input type="text" maxlength="2" id="month-input" readonly>
+                        <input type="text" maxlength="4" id="year-input" readonly>
+                    </div>
+                </div>
+                <input type="date" id="date-picker" style="opacity: 0; position: absolute; pointer-events: none;">
+            </div>
+
+            <script>
+                document.addEventListener('DOMContentLoaded', function () {
+                    const datePicker = document.getElementById('date-picker');
+                    const dayInput = document.getElementById('day-input');
+                    const monthInput = document.getElementById('month-input');
+                    const yearInput = document.getElementById('year-input');
+
+                    // Función para actualizar los inputs visuales
+                    function updateDateInputs(date) {
+                        if (!date) return;
+                        const d = new Date(date + 'T00:00:00'); // Asegurar zona horaria local
+                        dayInput.value = String(d.getDate()).padStart(2, '0');
+                        monthInput.value = String(d.getMonth() + 1).padStart(2, '0');
+                        yearInput.value = d.getFullYear();
+                    }
+
+                    // Establecer fecha actual al cargar
+                    const today = new Date();
+                    const yyyy = today.getFullYear();
+                    const mm = String(today.getMonth() + 1).padStart(2, '0');
+                    const dd = String(today.getDate()).padStart(2, '0');
+                    const formattedToday = `${yyyy}-${mm}-${dd}`;
+
+                    datePicker.value = formattedToday;
+                    updateDateInputs(formattedToday);
+
+                    // Escuchar cambios en el picker
+                    datePicker.addEventListener('change', function (e) {
+                        updateDateInputs(this.value);
+                    });
+                });
+            </script>
+        </header>
+
+        <form>
+            <!-- Sección 1 -->
+            <section class="section-1">
+                <h3>1. ¿DÓNDE SE REUNE LA IGLESIA?(Marcar una):</h3>
+                <div class="row">
+                    <span>Comunidad</span> <input type="checkbox">
+                    <span>cantón</span> <input type="checkbox">
+                    <span>ciudad</span> <input type="checkbox">
+                    <input type="text" class="line-input full-width">
+                </div>
+                <div class="row">
+                    <span>• Provincia:</span> <input type="text" class="line-input flex-grow">
+                    <span>Departamento:</span>
+                    <select>
+                        <option>Potosí</option>
+                        <option>La Paz</option>
+                        <option>Santa Cruz</option>
+                        <option>Cochabamba</option>
+                        <option>Oruro</option>
+                        <option>Chuquisaca</option>
+                        <option>Tarija</option>
+                        <option>Beni</option>
+                        <option>Pando</option>
+                    </select>
+                </div>
+                <div class="row">
+                    <span>• Barrio:</span> <input type="text" class="line-input flex-grow">
+                    <select class="line-input">
+                        <option>Calle</option>
+                        <option>Avenida</option>
+                        <option>Carretera</option>
+                        <option>Autopista</option>
+                        <option>Autovía</option>
+                        <option>Otro</option>
+                    </select>
+                    <input type="text" class="line-input flex-grow">
+                </div>
+                <div class="row">
+                    <span>• Número:</span> <input type="text" class="line-input small-input" placeholder="N°">
+                    <span>Casilla de Correo:</span> <input type="text" class="line-input medium-input">
+                    <span>Telfs.:</span> <input type="text" class="line-input flex-grow" placeholder="Ej: 2-2315159">
+                </div>
+            </section>
+
+            <!-- Sección 2 -->
+            <section class="section-2">
+                <h3>2. ¿CUÁNTAS PERSONAS ASISTEN REGULARMENTE A LAS SIGUIENTES REUNIONES?:</h3>
+                <div class="row">
+                    <span>Cena del Señor:</span> <input type="text" class="line-input medium-input">
+                    <span>Reuniones Generales:</span> <input type="text" class="line-input flex-grow">
+                </div>
+            </section>
+
+            <!-- Sección 3 -->
+            <section class="section-3">
+                <h3>3. ¿QUIÉNES SON LOS ANCIANOS? Por favor escriba con claridad ambos apellidos:</h3>
+                <div class="ancianos-grid">
+                    <div class="anciano-row">
+                        <span>•</span> <input type="text" class="line-input name-input">
+                        <span>N° C.I.:</span> <input type="text" class="line-input ci-input">
+                        <span>Firma:</span>
+                        <div class="firma-box"></div>
+                    </div>
+                    <div class="anciano-row">
+                        <span>•</span> <input type="text" class="line-input name-input">
+                        <span>N° C.I.:</span> <input type="text" class="line-input ci-input">
+                        <span>Firma:</span>
+                        <div class="firma-box"></div>
+                    </div>
+                    <div class="anciano-row">
+                        <span>•</span> <input type="text" class="line-input name-input">
+                        <span>N° C.I.:</span> <input type="text" class="line-input ci-input">
+                        <span>Firma:</span>
+                        <div class="firma-box"></div>
+                    </div>
+                    <div class="anciano-row">
+                        <span>•</span> <input type="text" class="line-input name-input">
+                        <span>N° C.I.:</span> <input type="text" class="line-input ci-input">
+                        <span>Firma:</span>
+                        <div class="firma-box"></div>
+                    </div>
+                    <div class="anciano-row">
+                        <span>•</span> <input type="text" class="line-input name-input">
+                        <span>N° C.I.:</span> <input type="text" class="line-input ci-input">
+                        <span>Firma:</span>
+                        <div class="firma-box"></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Sección 4 -->
+            <section class="section-4">
+                <h3>4. ¿EN QUÉ HORARIO SON LAS REUNIONES DE LA IGLESIA?:</h3>
+                <div class="horario-grid-v2">
+                    <!-- Fila 1 -->
+                    <div class="h-row">
+                        <span class="h-label">Día:</span>
+                        <select class="line-input h-day-input">
+                            <option></option>
+                            <option>Domingo</option>
+                            <option>Lunes</option>
+                            <option>Martes</option>
+                            <option>Miércoles</option>
+                            <option>Jueves</option>
+                            <option>Viernes</option>
+                            <option>Sábado</option>
+                        </select>
+                        <span class="h-label">Hora</span>
+                        <select class="line-input h-hour-input">
+                            <option></option>
+                            <option>06:00</option>
+                            <option>06:30</option>
+                            <option>07:00</option>
+                            <option>07:30</option>
+                            <option>08:00</option>
+                            <option>08:30</option>
+                            <option>09:00</option>
+                            <option>09:30</option>
+                            <option>10:00</option>
+                            <option>10:30</option>
+                            <option>11:00</option>
+                            <option>11:30</option>
+                            <option>12:00</option>
+                            <option>12:30</option>
+                            <option>13:00</option>
+                            <option>13:30</option>
+                            <option>14:00</option>
+                            <option>14:30</option>
+                            <option>15:00</option>
+                            <option>15:30</option>
+                            <option>16:00</option>
+                            <option>16:30</option>
+                            <option>17:00</option>
+                            <option>17:30</option>
+                            <option>18:00</option>
+                            <option>18:30</option>
+                            <option>19:00</option>
+                            <option>19:30</option>
+                            <option>20:00</option>
+                            <option>20:30</option>
+                            <option>21:00</option>
+                            <option>21:30</option>
+                            <option>22:00</option>
+                        </select>
+                        <input type="text" class="line-input h-desc-input">
+                    </div>
+                    <!-- Fila 2 -->
+                    <div class="h-row">
+                        <span class="h-label">Día:</span>
+                        <select class="line-input h-day-input">
+                            <option></option>
+                            <option>Domingo</option>
+                            <option>Lunes</option>
+                            <option>Martes</option>
+                            <option>Miércoles</option>
+                            <option>Jueves</option>
+                            <option>Viernes</option>
+                            <option>Sábado</option>
+                        </select>
+                        <span class="h-label">Hora</span>
+                        <select class="line-input h-hour-input">
+                            <option></option>
+                            <option>06:00</option>
+                            <option>06:30</option>
+                            <option>07:00</option>
+                            <option>07:30</option>
+                            <option>08:00</option>
+                            <option>08:30</option>
+                            <option>09:00</option>
+                            <option>09:30</option>
+                            <option>10:00</option>
+                            <option>10:30</option>
+                            <option>11:00</option>
+                            <option>11:30</option>
+                            <option>12:00</option>
+                            <option>12:30</option>
+                            <option>13:00</option>
+                            <option>13:30</option>
+                            <option>14:00</option>
+                            <option>14:30</option>
+                            <option>15:00</option>
+                            <option>15:30</option>
+                            <option>16:00</option>
+                            <option>16:30</option>
+                            <option>17:00</option>
+                            <option>17:30</option>
+                            <option>18:00</option>
+                            <option>18:30</option>
+                            <option>19:00</option>
+                            <option>19:30</option>
+                            <option>20:00</option>
+                            <option>20:30</option>
+                            <option>21:00</option>
+                            <option>21:30</option>
+                            <option>22:00</option>
+                        </select>
+                        <input type="text" class="line-input h-desc-input">
+                    </div>
+                    <!-- Fila 3 -->
+                    <div class="h-row">
+                        <span class="h-label">Día:</span>
+                        <select class="line-input h-day-input">
+                            <option></option>
+                            <option>Domingo</option>
+                            <option>Lunes</option>
+                            <option>Martes</option>
+                            <option>Miércoles</option>
+                            <option>Jueves</option>
+                            <option>Viernes</option>
+                            <option>Sábado</option>
+                        </select>
+                        <span class="h-label">Hora</span>
+                        <select class="line-input h-hour-input">
+                            <option></option>
+                            <option>06:00</option>
+                            <option>06:30</option>
+                            <option>07:00</option>
+                            <option>07:30</option>
+                            <option>08:00</option>
+                            <option>08:30</option>
+                            <option>09:00</option>
+                            <option>09:30</option>
+                            <option>10:00</option>
+                            <option>10:30</option>
+                            <option>11:00</option>
+                            <option>11:30</option>
+                            <option>12:00</option>
+                            <option>12:30</option>
+                            <option>13:00</option>
+                            <option>13:30</option>
+                            <option>14:00</option>
+                            <option>14:30</option>
+                            <option>15:00</option>
+                            <option>15:30</option>
+                            <option>16:00</option>
+                            <option>16:30</option>
+                            <option>17:00</option>
+                            <option>17:30</option>
+                            <option>18:00</option>
+                            <option>18:30</option>
+                            <option>19:00</option>
+                            <option>19:30</option>
+                            <option>20:00</option>
+                            <option>20:30</option>
+                            <option>21:00</option>
+                            <option>21:30</option>
+                            <option>22:00</option>
+                        </select>
+                        <input type="text" class="line-input h-desc-input">
+                    </div>
+                    <!-- Fila 4 -->
+                    <div class="h-row">
+                        <span class="h-label">Día:</span>
+                        <select class="line-input h-day-input">
+                            <option></option>
+                            <option>Domingo</option>
+                            <option>Lunes</option>
+                            <option>Martes</option>
+                            <option>Miércoles</option>
+                            <option>Jueves</option>
+                            <option>Viernes</option>
+                            <option>Sábado</option>
+                        </select>
+                        <span class="h-label">Hora</span>
+                        <select class="line-input h-hour-input">
+                            <option></option>
+                            <option>06:00</option>
+                            <option>06:30</option>
+                            <option>07:00</option>
+                            <option>07:30</option>
+                            <option>08:00</option>
+                            <option>08:30</option>
+                            <option>09:00</option>
+                            <option>09:30</option>
+                            <option>10:00</option>
+                            <option>10:30</option>
+                            <option>11:00</option>
+                            <option>11:30</option>
+                            <option>12:00</option>
+                            <option>12:30</option>
+                            <option>13:00</option>
+                            <option>13:30</option>
+                            <option>14:00</option>
+                            <option>14:30</option>
+                            <option>15:00</option>
+                            <option>15:30</option>
+                            <option>16:00</option>
+                            <option>16:30</option>
+                            <option>17:00</option>
+                            <option>17:30</option>
+                            <option>18:00</option>
+                            <option>18:30</option>
+                            <option>19:00</option>
+                            <option>19:30</option>
+                            <option>20:00</option>
+                            <option>20:30</option>
+                            <option>21:00</option>
+                            <option>21:30</option>
+                            <option>22:00</option>
+                        </select>
+                        <input type="text" class="line-input h-desc-input">
+                    </div>
+                    <!-- Fila 5 -->
+                    <div class="h-row">
+                        <span class="h-label">Día:</span>
+                        <select class="line-input h-day-input">
+                            <option></option>
+                            <option>Domingo</option>
+                            <option>Lunes</option>
+                            <option>Martes</option>
+                            <option>Miércoles</option>
+                            <option>Jueves</option>
+                            <option>Viernes</option>
+                            <option>Sábado</option>
+                        </select>
+                        <span class="h-label">Hora</span>
+                        <select class="line-input h-hour-input">
+                            <option></option>
+                            <option>06:00</option>
+                            <option>06:30</option>
+                            <option>07:00</option>
+                            <option>07:30</option>
+                            <option>08:00</option>
+                            <option>08:30</option>
+                            <option>09:00</option>
+                            <option>09:30</option>
+                            <option>10:00</option>
+                            <option>10:30</option>
+                            <option>11:00</option>
+                            <option>11:30</option>
+                            <option>12:00</option>
+                            <option>12:30</option>
+                            <option>13:00</option>
+                            <option>13:30</option>
+                            <option>14:00</option>
+                            <option>14:30</option>
+                            <option>15:00</option>
+                            <option>15:30</option>
+                            <option>16:00</option>
+                            <option>16:30</option>
+                            <option>17:00</option>
+                            <option>17:30</option>
+                            <option>18:00</option>
+                            <option>18:30</option>
+                            <option>19:00</option>
+                            <option>19:30</option>
+                            <option>20:00</option>
+                            <option>20:30</option>
+                            <option>21:00</option>
+                            <option>21:30</option>
+                            <option>22:00</option>
+                        </select>
+                        <input type="text" class="line-input h-desc-input">
+                    </div>
+                    <!-- Fila 6 -->
+                    <div class="h-row">
+                        <span class="h-label">Día:</span>
+                        <select class="line-input h-day-input">
+                            <option></option>
+                            <option>Domingo</option>
+                            <option>Lunes</option>
+                            <option>Martes</option>
+                            <option>Miércoles</option>
+                            <option>Jueves</option>
+                            <option>Viernes</option>
+                            <option>Sábado</option>
+                        </select>
+                        <span class="h-label">Hora</span>
+                        <select class="line-input h-hour-input">
+                            <option></option>
+                            <option>06:00</option>
+                            <option>06:30</option>
+                            <option>07:00</option>
+                            <option>07:30</option>
+                            <option>08:00</option>
+                            <option>08:30</option>
+                            <option>09:00</option>
+                            <option>09:30</option>
+                            <option>10:00</option>
+                            <option>10:30</option>
+                            <option>11:00</option>
+                            <option>11:30</option>
+                            <option>12:00</option>
+                            <option>12:30</option>
+                            <option>13:00</option>
+                            <option>13:30</option>
+                            <option>14:00</option>
+                            <option>14:30</option>
+                            <option>15:00</option>
+                            <option>15:30</option>
+                            <option>16:00</option>
+                            <option>16:30</option>
+                            <option>17:00</option>
+                            <option>17:30</option>
+                            <option>18:00</option>
+                            <option>18:30</option>
+                            <option>19:00</option>
+                            <option>19:30</option>
+                            <option>20:00</option>
+                            <option>20:30</option>
+                            <option>21:00</option>
+                            <option>21:30</option>
+                            <option>22:00</option>
+                        </select>
+                        <input type="text" class="line-input h-desc-input" placeholder="Ej: Escuela Dominical">
+                    </div>
+                </div>
+            </section>
+
+            <!-- Sección 5 -->
+            <section class="section-5">
+                <h3>5. ¿CUÁLES ACTIVIDADES ESPIRITUALES REALIZÓ EN ESTA GESTIÓN LA IGLESIA?:</h3>
+                <div class="actividad-row"><span>• Niños:</span> <input type="text" class="line-input small"> <span>Tipo
+                        de actividad:</span> <input type="text" class="line-input flex-grow"> <span>Fecha:</span> <input
+                        type="date" class="line-input medium"></div>
+                <div class="actividad-row"><span>• Jóvenes:</span> <input type="text" class="line-input small">
+                    <span>Tipo de actividad:</span> <input type="text" class="line-input flex-grow"> <span>Fecha:</span>
+                    <input type="date" class="line-input medium">
+                </div>
+                <div class="actividad-row"><span>• Familias:</span> <input type="text" class="line-input small">
+                    <span>Tipo de actividad:</span> <input type="text" class="line-input flex-grow"> <span>Fecha:</span>
+                    <input type="date" class="line-input medium">
+                </div>
+                <div class="actividad-row"><span>• Matrimonios:</span> <input type="text" class="line-input small">
+                    <span>Tipo de actividad:</span> <input type="text" class="line-input flex-grow"> <span>Fecha:</span>
+                    <input type="date" class="line-input medium">
+                </div>
+                <div class="actividad-row"><span>• Ancianos:</span> <input type="text" class="line-input small">
+                    <span>Tipo de actividad:</span> <input type="text" class="line-input flex-grow"> <span>Fecha:</span>
+                    <input type="date" class="line-input medium">
+                </div>
+                <div class="actividad-row"><span>• Carcel:</span> <input type="text" class="line-input small">
+                    <span>Tipo de actividad:</span> <input type="text" class="line-input flex-grow"> <span>Fecha:</span>
+                    <input type="date" class="line-input medium">
+                </div>
+            </section>
+
+            <!-- Sección 6 -->
+            <section class="section-6">
+                <h3>6. ¿CUÁLES ACTIVIDADES DE BENEFICENCIA A LA SOCIEDAD REALIZÓ LA IGLESIA?:</h3>
+                <p class="small-text">Especifique el tipo de actividad realizada en beneficio social. Ejemplo: Almuerzo
+                    a los ancianos del barrio, desayuno a los niños, distribución de ropa, o cualquier otro tipo de
+                    actividad en bien de la comunidad donde efectúa reuniones la Iglesia. Si falta espacio puede
+                    escribir en el reverso.</p>
+                <textarea rows="5"></textarea>
+            </section>
+
+            <!-- Sección 7 -->
+            <section class="section-7">
+                <h3>7. ¿A QUÉ DIRECCIÓN DEBERÁ M.C.B. ENVIAR LA CORRESPONDENCIA?:</h3>
+                <div class="row">
+                    <span>NOMBRE:</span> <input type="text" class="line-input flex-grow">
+                    <span>CIUDAD:</span> <input type="text" class="line-input medium-input">
+                </div>
+                <div class="row">
+                    <select class="line-input">
+                        <option>Calle</option>
+                        <option>Avenida</option>
+                        <option>Carretera</option>
+                        <option>Autopista</option>
+                        <option>Autovía</option>
+                        <option>Otro</option>
+                    </select>
+                    <input type="text" class="line-input flex-grow">
+                    <span>NÚMERO DE CASILLA:</span> <input type="text" class="line-input medium-input">
+                </div>
+                <div class="row">
+                    <span>TELF.:</span> <input type="text" class="line-input" value="72422831"
+                        style="color:blue; font-weight:bold;">
+                    <span>CORREO ELECTRÓNICO:</span> <input type="text" class="line-input flex-grow"
+                        placeholder="ejemplo@email.com">
+                </div>
+            </section>
+
+            <footer>
+                <p class="nota"><strong>NOTA:</strong> Una vez llenado y sellado este formulario, envíelo a: Misiones
+                    Cristians Bolivia, Casilla 14277, La Paz, o comuniquese al Tel. 2-2315159 y 2-2315434 de 9:00 a
+                    12:00 horas o a: <strong>misionescristianasbolivia@hotmail.com</strong></p>
+            </footer>
+
+        </form>
+    </div>
+</body>
+
+</html>

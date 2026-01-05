@@ -1,0 +1,453 @@
+@import url('https://fonts.googleapis.com/css2?family=Arial:wght@400;700&display=swap');
+
+body {
+    background-color: #e0f0f5;
+    /* Color de fondo azul claro simula el borde de la imagen */
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.page-container {
+    background-color: white;
+    width: 21.59cm;
+    /* Tamaño Carta Ancho */
+    min-height: 27.94cm;
+    /* Tamaño Carta Alto */
+    padding: 1cm;
+    box-sizing: border-box;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border: 1px solid #000;
+    border-radius: 8px;
+    /* Borde redondeado exterior estilo imagen */
+    position: relative;
+    font-size: 10pt;
+    position: relative;
+    font-size: 10pt;
+}
+
+/* Botón de Imprimir */
+.print-btn {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background-color: #28a745;
+    /* Verde éxito */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s, transform 0.2s;
+    z-index: 1000;
+}
+
+.print-btn:hover {
+    background-color: #218838;
+    transform: translateY(-2px);
+}
+
+/* Header */
+header {
+    text-align: center;
+    border-bottom: 2px solid #aaa;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+    position: relative;
+}
+
+.header-logo {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 120px;
+    /* Aumentado de 80px */
+    height: 120px;
+    /* Aumentado de 80px */
+}
+
+.logo-placeholder {
+    width: 100%;
+    height: 100%;
+    background: #eee;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8em;
+    border: 1px dashed #ccc;
+    color: #999;
+}
+
+.header-content h1 {
+    font-size: 16pt;
+    font-weight: 900;
+    margin: 5px 0;
+    text-transform: uppercase;
+}
+
+.header-content .legal-info {
+    font-size: 8pt;
+    margin: 2px 0;
+}
+
+.header-content .website {
+    font-weight: bold;
+    font-size: 9pt;
+    margin: 2px 0 8px 0;
+}
+
+.header-content h2 {
+    font-size: 11pt;
+    font-weight: 900;
+    margin: 5px 0;
+    text-transform: uppercase;
+    line-height: 1.2;
+}
+
+.header-content .instructions {
+    font-size: 8pt;
+    font-style: italic;
+
+    margin: 2px 0;
+}
+
+/* Ajuste necesario para header content dado el logo más grande */
+.header-content {
+    margin-left: 20px;
+    /* Un poco de margen extra */
+}
+
+
+.header-date {
+    position: absolute;
+    right: 0;
+    top: 50px;
+    text-align: center;
+}
+
+.header-date label {
+    display: block;
+    margin-bottom: 2px;
+    font-weight: bold;
+    text-align: left;
+}
+
+.date-box {
+    border: 1px solid #777;
+    background: #fdfdfd;
+}
+
+.date-header {
+    background: #8ecae6;
+    color: white;
+    font-weight: bold;
+    font-size: 7pt;
+    display: flex;
+}
+
+.date-header span {
+    width: 30px;
+    border-right: 1px solid #777;
+    text-align: center;
+}
+
+.date-header span:last-child {
+    border-right: none;
+    width: 40px;
+}
+
+.date-inputs {
+    display: flex;
+}
+
+.date-inputs input {
+    width: 30px;
+    border: none;
+    border-right: 1px solid #777;
+    text-align: center;
+    font-size: 9pt;
+    outline: none;
+}
+
+.date-inputs input:last-child {
+    border-right: none;
+    width: 40px;
+}
+
+
+/* General Form Styles */
+h3 {
+    font-size: 9pt;
+    font-weight: bold;
+    margin: 8px 0 4px 0;
+    text-transform: uppercase;
+}
+
+.row {
+    display: flex;
+    align-items: center;
+    margin-bottom: 4px;
+    gap: 5px;
+}
+
+.line-input {
+    border: 1px solid #999;
+    border-radius: 4px;
+    padding: 2px 5px;
+    background: #f0f0f0;
+    /* Gris muy claro */
+    height: 18px;
+    font-size: 9pt;
+}
+
+input[type="checkbox"] {
+    margin: 0 2px;
+}
+
+.full-width {
+    width: 100%;
+}
+
+.flex-grow {
+    flex-grow: 1;
+}
+
+.small-input {
+    width: 50px;
+}
+
+.medium-input {
+    width: 100px;
+}
+
+/* Sections specific */
+.section-1,
+.section-2,
+.section-4,
+.section-5,
+.section-7 {
+    background: #f9fcfd;
+    /* Ligero fondo azulado en secciones */
+    padding: 2px 5px;
+    border-radius: 4px;
+    border-radius: 4px;
+    margin-bottom: 5px;
+}
+
+/* Specific Section 7 Grid alignment */
+.section-7 .row {
+    display: flex;
+    /* Grid con flexbox más controlado */
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 8px;
+    /* Más espacio vertical */
+}
+
+.section-7 .row>span {
+    font-weight: bold;
+    min-width: 60px;
+    /* Ancho mínimo para etiquetas para alinear inputs */
+    text-align: right;
+}
+
+.section-7 .medium-input {
+    width: 140px;
+    /* Un poco más anchos */
+}
+
+
+/* Ancients Grid */
+.ancianos-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.anciano-row {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.firma-box {
+    border: 1px solid #999;
+    border-radius: 4px;
+    height: 25px;
+    background: white;
+    flex-grow: 1;
+}
+
+.name-input {
+    width: 40%;
+}
+
+.ci-input {
+    width: 15%;
+}
+
+
+/* Horarios Grid V2 */
+.horario-grid-v2 {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    /* Espacio vertical entre filas reducido */
+    padding: 0 5px;
+}
+
+.h-row {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.h-label {
+    font-weight: bold;
+    width: 30px;
+    /* Ancho fijo para etiquetas */
+}
+
+/* Inputs específicos de horario */
+.h-day-input {
+    width: 100px;
+    border: 1px solid #777;
+    /* Borde visible */
+    height: 22px;
+    /* Altura uniforme */
+}
+
+.h-hour-input {
+    width: 70px;
+    border: 1px solid #777;
+    height: 22px;
+}
+
+.h-desc-input {
+    flex-grow: 1;
+    border: 1px solid #777;
+    height: 22px;
+}
+
+/* Simulación de arrow para el primer input */
+.input-with-arrow {
+    position: relative;
+    display: inline-block;
+}
+
+.fake-arrow {
+    position: absolute;
+    right: 2px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 8pt;
+    pointer-events: none;
+    background: #e0e0e0;
+    border: 1px solid #999;
+    padding: 0 2px;
+    cursor: pointer;
+}
+
+/* Redefinir line-input globalmente ligeramente más cuadrado */
+.line-input {
+    border: 1px solid #777;
+    border-radius: 0;
+    padding: 2px 5px;
+    background: #fff;
+    height: 20px;
+    font-size: 9pt;
+}
+
+/* Activities Rows */
+.actividad-row {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin-bottom: 4px;
+    /* Un poco más de espacio */
+}
+
+/* Alineación estricta para Sección 5 */
+.section-5 .actividad-row>span:nth-of-type(1) {
+    width: 110px;
+    /* Ancho fijo para la categoría (Niños, Jóvenes...) */
+    text-align: right;
+    font-weight: bold;
+}
+
+.section-5 .actividad-row>span:nth-of-type(2) {
+    width: 110px;
+    /* Ancho fijo para "Tipo de actividad:" */
+    text-align: right;
+    font-weight: bold;
+}
+
+.section-5 .actividad-row>span:nth-of-type(3) {
+    width: 50px;
+    /* Ancho fijo para "Fecha:" */
+    text-align: right;
+    font-weight: bold;
+}
+
+.actividad-row .small {
+    width: 60px;
+    /* Ajuste para input de cantidad/descripción corta */
+}
+
+.actividad-row .medium {
+    width: 100px;
+}
+
+
+/* Textarea */
+textarea {
+    width: 100%;
+    border: 1px solid #999;
+    border-radius: 4px;
+    resize: none;
+    background: #f0f0f0;
+}
+
+.small-text {
+    font-size: 8pt;
+    margin-bottom: 2px;
+}
+
+/* Footer */
+footer {
+    border: 1px solid #000;
+    padding: 5px;
+    margin-top: 10px;
+    font-size: 8pt;
+    text-align: center;
+    border-radius: 4px;
+}
+
+.nota {
+    margin: 0;
+}
+
+/* Print Styles */
+@media print {
+    body {
+        background: none;
+        padding: 0;
+    }
+
+    .page-container {
+        box-shadow: none;
+        border: none;
+        width: 100%;
+        height: auto;
+    }
+
+    .print-btn {
+        display: none !important;
+        /* Ocultar botón al imprimir */
+    }
+}

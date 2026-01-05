@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Formulario Misiones Cristianas Bolivia</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #e9eef3;
+        }
+
+        .container {
+            width: 900px;
+            margin: 20px auto;
+            background: #fff;
+            padding: 20px;
+            border: 1px solid #999;
+        }
+
+        h1,
+        h2 {
+            text-align: center;
+            margin: 5px;
+        }
+
+        small {
+            display: block;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        .section {
+            border: 1px solid #000;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+
+        .label {
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        input[type="text"],
+        input[type="number"],
+        textarea,
+        select {
+            width: 100%;
+            padding: 4px;
+            margin-top: 3px;
+            margin-bottom: 6px;
+            box-sizing: border-box;
+        }
+
+        .inline {
+            display: flex;
+            gap: 10px;
+        }
+
+        .inline div {
+            flex: 1;
+        }
+
+        .checks label {
+            margin-right: 15px;
+        }
+
+        textarea {
+            height: 70px;
+        }
+
+        .print-btn {
+            text-align: center;
+            margin: 20px;
+        }
+
+        @media print {
+            .print-btn {
+                display: none;
+            }
+
+            body {
+                background: white;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>Misiones Cristianas Bolivia</h1>
+        <small>Formulario para actualización de datos e informe anual</small>
+
+        <div class="section">
+            <span class="label">1. ¿Dónde se reúne la iglesia?</span>
+
+            <div class="checks">
+                <label><input type="checkbox"> Comunidad</label>
+                <label><input type="checkbox"> Cantón</label>
+                <label><input type="checkbox"> Ciudad</label>
+            </div>
+
+            <div class="inline">
+                <div>Provincia:<input type="text"></div>
+                <div>Departamento:<input type="text" value="Potosí"></div>
+            </div>
+
+            <div class="inline">
+                <div>Barrio:<input type="text"></div>
+                <div>Calle:<input type="text"></div>
+                <div>N°:<input type="text"></div>
+            </div>
+
+            Casilla de Correo:<input type="text">
+            Telfs:<input type="text">
+        </div>
+
+        <div class="section">
+            <span class="label">2. ¿Cuántas personas asisten regularmente?</span>
+            Cena del Señor:<input type="number">
+            Reuniones Generales:<input type="number">
+        </div>
+
+        <div class="section">
+            <span class="label">3. ¿Quiénes son los ancianos?</span>
+
+            <div class="inline">
+                <div>Nombre y Apellido<input type="text"></div>
+                <div>C.I.<input type="text"></div>
+                <div>Firma<input type="text"></div>
+            </div>
+
+            <div class="inline">
+                <div>Nombre y Apellido<input type="text"></div>
+                <div>C.I.<input type="text"></div>
+                <div>Firma<input type="text"></div>
+            </div>
+
+        </div>
+
+        <div class="section">
+            <span class="label">4. Horarios de reuniones</span>
+
+            Domingo – Cena del Señor:<input type="text" value="10:00">
+            Domingo – Ministerio:<input type="text" value="11:00">
+            Miércoles – Ministerio:<input type="text" value="20:00">
+            Viernes – Noche de Oración:<input type="text" value="20:00">
+        </div>
+
+        <div class="section">
+            <span class="label">5. Actividades espirituales realizadas</span>
+
+            Niños:<input type="text">
+            Jóvenes:<input type="text">
+            Familias:<input type="text">
+            Matrimonios:<input type="text">
+            Ancianos:<input type="text">
+            Cárcel:<input type="text">
+        </div>
+
+        <div class="section">
+            <span class="label">6. Actividades de beneficencia</span>
+            <textarea placeholder="Describa las actividades realizadas..."></textarea>
+        </div>
+
+        <div class="section">
+            <span class="label">7. Dirección para correspondencia</span>
+
+            Nombre:<input type="text">
+            Ciudad:<input type="text" value="Potosí">
+            Calle:<input type="text">
+            N° Casilla:<input type="text">
+            Teléfono:<input type="text">
+            Correo electrónico:<input type="text">
+        </div>
+
+        <div class="print-btn">
+            <button onclick="window.print()">🖨️ Imprimir Formulario</button>
+        </div>
+
+    </div>
+
+</body>
+
+</html>
